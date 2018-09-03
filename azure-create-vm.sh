@@ -5,14 +5,14 @@
 #
 # Description:  Script for creating nice structure in Microsoft Azure cloud like this:
 #                  Resource group:     servers
-#                  Virtual network:    servers__virtual-network
+#                  Virtual network:    servers__network
 #                  Availability set:   servers__availability-set
 #                  VM:                 server-01
 #                  Disk:               server-01__disk-01
-#                  Network interface:  server-01__private-ip-01
+#                  Network interface:  server-01__ip-private-01
 # 
-# Version:      0.2.0
-# Date:         Aug 2018
+# Version:      0.2.1
+# Date:         Sep 2018
 # Depends:      azure-cli
 #
 # Author:       Oleg Podgaisky (o-pod)
@@ -36,7 +36,7 @@ echo
 #
 location="southcentralus"
 resource_group="servers"
-virt_network="servers__virtual-network"
+virt_network="servers__network"
 virt_network_range="10.0.0.0/16"
 subnet="default"
 subnet_range="10.0.0.0/24"
@@ -54,8 +54,8 @@ availability_set="servers__availability-set"
 #
 name="server-01"
 image="UbuntuLTS"
-ip="10.0.0.11"
-interface_suffix="__private-ip-01"
+ip="10.0.0.101"
+interface_suffix="__ip-private-01"
 disk_suffix="__disk-01"
 size="Standard_B1s"           # Available sizes:  az vm list-sizes --location locationName
 storage_type="Premium_LRS"    # Disk types:   SSD = "Premium_LRS"; HDD = "Standard_LRS"
